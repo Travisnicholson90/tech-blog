@@ -1,0 +1,23 @@
+[
+    {
+       "first_name": "Michelle",
+       "last_name": "Rose",
+       "email": "michelle.rose@gmail.com",
+       "username": "michelle.rose1990",
+       "password": "michRose1234" 
+    },
+    {
+        "first_name": "James",
+        "last_name": "Cameron",
+        "email": "james.cameron@gmail.com",
+        "username": "james.cameron1990",
+        "password": "jamescameron1234" 
+     },
+     {
+        "first_name": "Ben",
+        "last_name": "Gravy",
+        "email": "ben.gravy@gmail.com",
+        "username": "ben.gravy1990",
+        "password": "bengravy1234" 
+     }
+]
