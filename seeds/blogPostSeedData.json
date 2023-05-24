@@ -1,0 +1,23 @@
+[
+    {
+       "blog_title": "Why is MVC so important",
+       "blog_content": "MVC allows developer to maintain a true seperation of concerns, dividing their code between the Model layer for data, the View layer for design and the Controller layer for application logic.",
+       "blog_username": "bensmith1990",
+       "comment": "",
+       "user_id": 1
+    },
+    {
+        "blog_title": "Authentication vs Authorization",
+        "blog_content": "Authentication is the process of verifying the identity of a user or entity. It involves validating the provided credentials (such as username/password, tokens, or certificates) to ensure that the user or entity is who they claim to be. The goal of authentication is to establish trust and determine the identity of the user so that they can be granted access to the system. Authorization, on the other hand, is the process of granting or denying access rights and permissions to authenticated users. Once a user's identity is authenticated, authorization determines what actions or resources they are allowed to access based on their assigned permissions or roles. It involves checking whether the authenticated user has the necessary privileges to perform a specific operation or access certain resources.",
+        "blog_username": "jacobtownsend1945",
+        "comment": "",
+        "user_id": 2
+     },
+     {
+        "blog_title": "Object Relational Mapping",
+        "blog_content": "Object-Relational Mapping (ORM) is a technique used in software development to map data between an object-oriented programming language and a relational database. It provides a way to interact with a database using objects, allowing developers to work with the database using familiar object-oriented concepts rather than writing raw SQL queries. Popular ORM frameworks for JavaScript include sequelize.",
+        "blog_username": "bengravy1986",
+        "comment": "",
+        "user_id": 3
+     }
+]
