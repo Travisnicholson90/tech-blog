@@ -22,16 +22,12 @@ BlogPost.init(
             type: DataTypes.TEXT,
             allowNull: false
         },
-        //blog comment column
-        comment: {
-            type: DataTypes.STRING,
-        },
         // blog post created at
         created_at: {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW,
-          },
+        },
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -42,11 +38,11 @@ BlogPost.init(
         },
     },
     {
-     sequelize,
-     timestamps: true,
-     freezeTableName: true,
-     underscored: true,
-     modelName: 'blogPost',   
+        sequelize,
+        timestamps: true,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'blogPost',   
     },
 );
 

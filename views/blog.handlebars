@@ -1,0 +1,15 @@
+<section class="grid grid-cols-1 w-full items-center justify-center">
+    {{#each blogPost as |blog|}}
+    <div class="py-20 w-3/4 mx-auto">
+    <div class="flex">
+        <h1 class="text-black text-darkBlue text-3xl font-bold">{{blog.dataValues.blog_title}}<span>{{blog.dataValues.id}}</span></h1>
+        <p class="ms-auto text-lightGrayishBlue">{{format_date blog.dataValues.createdAt}}</p>
+    </div>
+        <p class="ms-auto text-xl py-3 text-grayishBlue">{{blog.dataValues.blog_content}}</p>
+              <a href="/api/blog-page/{{blog.dataValues.id}}">
+              <button id="btn" class="flex justify-self-start mt-3 w-3/5 md:w-3/5 lg:w-1/5 p-2 bg-softRed rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200" type="submit" role="button">See Full Blog</button>
+              </a>
+    
+    </div>
+    {{/each}}
+</section>

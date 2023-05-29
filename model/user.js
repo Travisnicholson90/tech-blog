@@ -30,6 +30,7 @@ User.init(
             unique: true,
             validate: {
                 len: [8],
+                isEmail: true,
             },
         },
         // username column
