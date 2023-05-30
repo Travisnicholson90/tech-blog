@@ -20,10 +20,9 @@ router.post('/comments/:id', withAuth, async (req, res) => {
 
         const postComment = await BlogComment.create({
             comment,
-            username,
+            username: req.session.username,
             blog_post_id: blogPost.id, // Set the correct blog_post_id value from the associated blog post
         });
-
         res.status(200).json(postComment);
     } catch (err) {
         console.error(err);

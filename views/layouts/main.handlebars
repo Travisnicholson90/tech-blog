@@ -28,18 +28,34 @@
   </script>
     <title>Tech Blog</title>
 </head>
-<body class="grid grid-cols-1 h-screen bg-veryLightGray">
+<body class="grid grid-cols-1 grid-rows-auto bg-lightGray relative h-screen">
 
-  <header class="relative flex items-center z-0 py-3 p-10">
+  <header class="header relative flex flex-col justify-start items-start lg:flex-row lg:items-center z-0 py-3 px-5">
+    <div class="flex items-center">
     <img id="toggle" class="flex w-14 z-100 hover:cursor-pointer object-cover" src="/assets/images/toggle.svg" alt="nav-toggle">
+
      <a href="/">
       <h1 class="z-100 text-textBlue text-4xl ms-10 text-darkBlue hover:cursor-pointer hover:text-softRed">TechStack Blog</h1>
      </a>
-      <div id="login-section" class="sm:hidden lg:flex lg:gap-5 text-2xl text-cyanLight ml-auto items-center">
-      <a href="/login">Login</a>
-      <a href="/logout">Logout</a>
+    
+    </div>
+
+     <div class="flex items-center text-2xl gap-2 pt-2 lg:pt-0 lg:ml-auto">
+      {{#if signedInUser}}
+      <p class="text-darkBlue">Welcome, {{signedInUser.dataValues.first_name}} {{signedInUser.dataValues.last_name}}!</p>
+      {{/if}}
+
+      <div id="login-section" class="sm:hidden lg:flex lg:gap-5 text-2xl ml-auto items-center">
+      {{#if loggedIn}}
+      <a class="text-softRed hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:text-softRed duration-200" href="/logout">Logout</a>
+      {{else}}
+      <a class="text-softRed hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:text-softRed duration-200" href="/login">Login</a>
+      {{/if}}
       </div>
-    <nav id="navbar" class="absolute flex flex-col z-100 w-full top-20 pt-20 ps-10 navbar-show navbar-hide h-screen bg-veryLightGray">
+
+     </div>
+
+    <nav id="navbar" class="absolute flex flex-col z-100 w-full top-20 pt-20 ps-10 navbar-show navbar-hide h-screen bg-lightGray">
       <ul class="flex flex-col gap-10 text-3xl font-bold text-darkBlue">
         <a class="hover:cursor-pointer hover:text-softRed" href="/">Home<li></li></a>
         <a class="hover:cursor-pointer hover:text-softRed" href="/post-blog">New Blog<li></li></a>
@@ -50,16 +66,15 @@
         {{else}}
         <a class="hover:cursor-pointer hover:text-softRed" href="/login">Login<li></li></a>
         {{/if}}
-        <a class="hover:cursor-pointer hover:text-softRed" href="/categories">Categories<li></li></a>
       </ul>
     </nav>
   </header>
-  <main>
+  <main class="main my-14">
   {{{body}}}
   </main>
-  <footer class="grid items-center py-5">
+  <footer class="grid items-center py-2 pt-10 mt-auto">
     <div class="grid items-center justify-center">
-      <h1 class="text-4xl text-cyanLight">TechStack Blog</h1>
+      <h1 class="text-4xl text-darkBlue">TechStack Blog</h1>
     </div>
   </footer>
   <script src="/js/index.js"></script>

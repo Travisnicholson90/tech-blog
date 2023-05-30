@@ -4,20 +4,55 @@
        "last_name": "Rose",
        "email": "michelle.rose@gmail.com",
        "username": "michelle.rose1990",
-       "password": "michRose1234" 
+       "password": "michellerose" 
     },
     {
         "first_name": "James",
         "last_name": "Cameron",
         "email": "james.cameron@gmail.com",
         "username": "james.cameron1990",
-        "password": "jamescameron1234" 
+        "password": "jamescameron" 
      },
      {
         "first_name": "Ben",
         "last_name": "Gravy",
         "email": "ben.gravy@gmail.com",
         "username": "ben.gravy1990",
-        "password": "bengravy1234" 
-     }
+        "password": "bengravy" 
+     },
+     {
+      "first_name": "Tony",
+      "last_name": "Smith",
+      "email": "tony.smith@gmail.com",
+      "username": "tonysmith",
+      "password": "tonysmith" 
+   },
+   {
+      "first_name": "Ben",
+      "last_name": "Roberts",
+      "email": "ben.roberts@gmail.com",
+      "username": "benoRob1990",
+      "password": "benroberts" 
+   },
+   {
+      "first_name": "James",
+      "last_name": "Pilkington",
+      "email": "j.pilkington@hotmail.com",
+      "username": "j.pilko1995",
+      "password": "jamespilkington" 
+   },
+   {
+      "first_name": "Jordon",
+      "last_name": "Lewis",
+      "email": "Jordo20020@live.com",
+      "username": "jordoLewis999",
+      "password": "jordonlewis" 
+   },
+   {
+      "first_name": "Bill",
+      "last_name": "Burr",
+      "email": "billyburry@bigpond.com",
+      "username": "billburr1962",
+      "password": "billburr" 
+   }
 ]

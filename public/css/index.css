@@ -28,3 +28,8 @@ body {
         display: none;
     }
 }
+
+.comment-box .comment:nth-child(odd) {
+    margin-left: 2rem;
+
+}

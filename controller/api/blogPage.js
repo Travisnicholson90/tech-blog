@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const path = require('path');
-const { BlogComment, BlogPost } = require('../../model');
+const { BlogComment, BlogPost, User } = require('../../model');
 
 
 router.get('/:id', async (req, res) => {
@@ -10,6 +10,10 @@ router.get('/:id', async (req, res) => {
             include: [ { model: BlogComment} ],
         });
 
+        const blogAuthor = await BlogPost.findByPk(req.params.id, {
+            include: [ { model: User} ],
+        });
+        
         const blogComments = await BlogComment.findByPk(req.params.blog_post_id, {
             include: [ { model: BlogPost} ],
         });
@@ -18,13 +22,17 @@ router.get('/:id', async (req, res) => {
             res.status(404).json({ message: 'No blog found with this id!' });
             return;
         }
+
+        if(!blogAuthor) {
+            res.status(404).json({ message: 'No author found with this id!' });
+            return;
+        }
+
         const blog = blogs.get({ plain: true });
+        const author = blogAuthor.get({ plain: true });
+        console.log('blog author', author);
         
-        
-        console.log('blog comments', blogComments);
-        console.log('blog', blog);
-        console.log('blog id', id);
-        res.render('blog-page', { blog, id, blogComments });
+        res.render('blog-page', { blog, id, blogComments, author});
     } catch (err) {
         console.error(err);
         res.status(500).json(err);

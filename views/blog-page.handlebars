@@ -1,37 +1,36 @@
 <section class="grid grid-cols-1 w-full items-center justify-center">
     <div class="py-20 w-3/4 mx-auto">
+        <h1 class="text-softRed text-5xl font-bold pb-5">Blog</span></h1>
     {{#if blog}}
-    <div class="flex">
-        <h1 class="text-black text-darkBlue text-3xl font-bold">{{blog.blog_title}}<span>{{blogs.dataValues.id}}</span></h1>
-    </div>
-        <p class="ms-auto text-xl py-3 text-grayishBlue">{{blog.blog_content}}</p>
-        <div>
-        <h2 class="text-black text-darkBlue text-2xl font-bold">Comments</h2>
-            <div class="grid-cols-1">
+    <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center">
+        <h2 class="text-darkBlue text-2xl lg:text-3xl font-bold">{{blog.blog_title}}<span>{{blogs.dataValues.id}}</span></h2>
+        {{#if author}}
+            <p class="italic text-darkBlue justify-self-start">Author <span class="text-softRed">{{author.user.username}}</span></p>
+        {{/if}}
+        </div>
+        <p class="ms-auto tracking-wide leading-relaxed text-lg lg:text-xl py-3 text-grayishBlue">{{blog.blog_content}}</p>
+        <div class="comment-box flex flex-col gap-4">
+        <h2 class="text-darkBlue text-2xl font-bold">Comments</h2>
             {{#each blog.blogComments as |comment|}}
-                <p>{{comment.comment}}</p>
-                <p>{{comment.createdAt}}</p>
-            {{/each}}
+            <div class="comment grid-cols-1 lg:w-2/3 bg-veryLightGray p-3 shadow-lg rounded-lg">
+                <p class="flex flex-wrap tracking-wide leading-relaxed text-lg lg:text-xl text-grayishBlue">{{comment.comment}}</p>
+                <div class="flex justify-between text-lg text-grayishBlue py-3">
+                <p class="text-softRed"><span class="text-grayishBlue italic">posted by</span> {{comment.username}}</p>
+                <p>{{format_date comment.createdAt}}</p>
+                </div>
             </div>
+            {{/each}}
         </div>
     <div class="w-full grid grid-cols-1 py-10">
-        <h2 class="text-black text-darkBlue text-2xl font-bold">Add Comment</h2>
+        <h2 class="text-darkBlue text-2xl font-bold">Add Comment</h2>
         <form id="comment-form" action="">
             <div class="flex flex-col py-3">
-            <label class="text-xl text-grayishBlue font-bold" for="username">Username</label>
-            <input id="comment-username" class="w-3/5 lg:w-2/5 text-xl text-grayishBlue p-2 outline-paleRed" type="text" name="username">
             <input id="blog-id" class="absolute hidden" value={{blog.id}} type="text">
             </div>
-            <textarea id="comment-text" class="w-3/5 text-xl text-grayishBlue p-3 outline-paleRed" type="text" rows="5" cols="10" placeholder="Comments..."></textarea>
-              <button id="btn" class="flex justify-self-start mt-3 w-3/5 md:w-3/5 lg:w-1/5 p-2 bg-softRed rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200" type="submit" role="button">Submit</button>
+            <textarea id="comment-text" class="w-full lg:w-3/5 text-lg lg:text-xl text-grayishBlue p-3 outline-paleRed tracking-wide leading-relaxed rounded-lg shadow-lg" type="text" rows="5" cols="10" placeholder="Comments..."></textarea>
+              <button id="btn" class="flex justify-self-start shadow-lg mt-3 w-3/5 md:w-3/5 lg:w-1/5 p-2 bg-softRed rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200" type="submit" role="button">Submit</button>
         </form>
     </div>
     {{/if}}
     </div>
-    <div>
-        {{#each blogComments as |comment|}}
-        <p class="text-5xl">{{comment.comment}}</p>
-        {{/each}}
-    </div>
-
 </section>

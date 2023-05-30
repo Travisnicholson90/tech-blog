@@ -7,6 +7,13 @@ router.get('/', async (req, res) => {
     try {
         const signupConfirmation  = req.query.signupConfirmation === "true";
 
+        const signedInUser = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: BlogPost }],
+        });
+        console.log('signed in user', signedInUser);
+        
+
         const blogPost = await BlogPost.findAll({})      
         
         if(!blogPost) {
@@ -14,10 +21,17 @@ router.get('/', async (req, res) => {
             return;
         };
 
+        if(req.session.loggedIn) {
+            console.log('you are logged in' );
+        } else {
+            console.log('you are logged out');
+        }
+
         res.render('home', { 
             blogPost,
             signupConfirmation,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            signedInUser
         })
     }
     catch (err) {
