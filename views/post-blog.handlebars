@@ -1,17 +1,18 @@
 <section class="grid grid-cols-1 w-full">
     <div class="grid grid-cols-1 w-full justify-self-center">
-        <h2 class="justify-self-center text-3xl font-bold text-darkBlue py-3">Write Blog</h2>
-        <form class="flex flex-col w-2/3 justify-self-center items-start" 
-        action="">
-            <div class="flex flex-col gap-3 w-2/3 mx-auto">
+        <form class="flex flex-col w-full md:w-3/4 lg:w-3/5 mx-auto gap-3 px-5" 
+        id="blog-post-form"
+        >
+        <h2 class="text-5xl font-bold text-softRed justify-self-center pb-8">Write Blog</h2>
+            <div class="flex flex-col gap-3 w-full mx-auto">
                 <label class="text-darkBlue text-2xl font-bold" for="blog-title">Blog Title</label>
-                <input class="ps-3 text-xl text-darkBlue rounded-full py-2 outline-paleRed" id="post-blog-title" type="text">
+                <input class="ps-3 text-xl text-darkBlue rounded-full py-2 outline-paleRed shadow-lg" id="blog-post-title" type="text">
             </div>
-            <div class="flex flex-col gap-3 w-2/3 mx-auto">
+            <div class="flex flex-col gap-3 w-full mx-auto">
                 <label class="text-darkBlue text-2xl font-bold" for="blog-content">Blog</label>
-                <textarea class="ps-3 text-xl text-darkBlue rounded-md py-2 outline-paleRed" id="post-blog-content" type="text" cols="5" rows="10"></textarea>
+                <textarea class="ps-3 text-xl text-darkBlue rounded-md py-2 outline-paleRed shadow-lg" id="blog-post-content" type="text" cols="5" rows="10"></textarea>
             </div>
-              <button id="btn" class="flex justify-self-start w-32 py-3 p-3 bg-softRed rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200 mt-5" role="button" type="submit">Post Blog</button>
+              <button id="btn" class="flex justify-self-start w-32 py-3 p-3 bg-softRed rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200 mt-3" role="button" type="submit">Post Blog</button>
      </form>
     </div>
 </section>

@@ -1,18 +1,18 @@
-<div class="grid grid-cols-1 items-start lg:grid-cols-2 gap-10 items-start justify-center py-10 px-5 mx-auto">
-    <div class="flex flex-col px-5 gap-10 items-start px-8 my-36">
-        <h1 class="text-6xl text-darkBlue w-4/5">Welcome to the TechStack Blog</h1>
-        <p class="text-3xl text-darkBlue items-center">Your place for all Fullstack Web Dev blogs, info and discussions! </p>
+<div class="py-16 lg:py-32 grid grid-cols-1 items-start lg:grid-cols-2 gap-20 items-start justify-center px-5 mx-auto">
+    <div class="flex flex-col px-5 gap-10 items-start mx-auto pb-14">
+        <h1 class="text-5xl font-bold lg:text-6xl text-darkBlue w-4/5">Welcome to the TechStack Blog</h1>
+        <p class="text-2xl lg:text-3xl text-darkBlue items-center">Your place for all Fullstack Web Dev blogs, info and discussions! </p>
               <a href="/blogs">
-              <button id="btn" class="flex justify-self-start w-32 py-3 p-3 bg-softRed rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200 mt-5" role="button">See Blogs</button>
+              <button id="btn" class="flex justify-self-start w-32 py-3 p-3 bg-softRed rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200 mt-3" role="button">See Blogs</button>
               </a>
     </div>
-    <div class="flex flex-col px-5 gap-8 items-start px-8 my-36">
-        <h2 class="text-5xl font-bold text-darkBlue">Latest Blogs</h2>
+    <div class="flex flex-col gap-4 items-start px-8">
+        <h2 class="text-3xl lg:text-5xl font-bold text-darkBlue">Latest Blogs</h2>
         {{#each blogPost as |blog|}}
-        <div class="flex items-center justify-start gap-3">
-            <h2 class="text-2xl text-grayishBlue hover:cursor-pointer hover:text-softRed">{{blog.dataValues.blog_title}}</h2>
+        <div class="flex flex-col lg:flex-row lg:items-center justify-start lg:gap-3">
+            <h2 class="text-xl lg:text-2xl text-grayishBlue">{{blog.dataValues.blog_title}}</h2>
               <a href="api/blog-page/{{blog.dataValues.id}}">
-              <button id="btn" class="flex text-xl text-softRed hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200 mt-2" role="button">Read Blog</button>
+              <button id="btn" class="flex text-lg lg:text-xl text-softRed hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200 mt-2" role="button">Read Blog</button>
               </a>
         </div>
         {{/each}}
