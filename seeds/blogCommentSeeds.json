@@ -5,6 +5,11 @@
         "blog_post_id": 5
     },
     {
+        "comment": "Good question j.pilko1995! Implementing role-based access control (RBAC) effectively involves defining roles, assigning permissions, and associating users with specific roles. To ensure granular control, it's crucial to carefully map roles to fine-grained permissions. Challenges may arise in defining appropriate roles and managing their complexity as the system grows. Best practices include keeping roles and permissions separate, regularly reviewing and updating access controls, implementing a hierarchical role structure, and conducting thorough testing. Additionally, documenting and enforcing the principle of least privilege, where users have only the permissions necessary for their tasks, helps minimize potential security risks and maintain a robust RBAC system.",
+        "username": "benoRob1990",
+        "blog_post_id": 1
+    },
+    {
         "comment": "ORM frameworks like Sequelize offer convenience and productivity by abstracting away the complexities of database interactions. However, there are trade-offs. ORMs may have a learning curve and may not support all database features. They can generate inefficient queries or introduce performance overhead. In scenarios requiring complex queries, performance optimizations, or utilizing specific database features, writing raw SQL queries may be preferable. Additionally, legacy systems with existing SQL codebases may benefit from the familiarity and control of handcrafted SQL. Ultimately, the choice depends on the project''s requirements, performance considerations, and the developer''s expertise in SQL and the ORM framework.",
         "username": "j.pilko1995",
         "blog_post_id": 5
@@ -12,11 +17,6 @@
     {
         "comment": "Great blog post on authentication and authorization! It's essential to establish trust and control access to resources. Regarding authorization, how can role-based access control (RBAC) be implemented effectively to manage user permissions and ensure granular control over actions and resources? Are there any common challenges or best practices to consider when implementing RBAC in a system with multiple user roles?",
         "username": "j.pilko1995",
-        "blog_post_id": 1
-    },
-    {
-        "comment": "Good question j.pilko1995! Implementing role-based access control (RBAC) effectively involves defining roles, assigning permissions, and associating users with specific roles. To ensure granular control, it's crucial to carefully map roles to fine-grained permissions. Challenges may arise in defining appropriate roles and managing their complexity as the system grows. Best practices include keeping roles and permissions separate, regularly reviewing and updating access controls, implementing a hierarchical role structure, and conducting thorough testing. Additionally, documenting and enforcing the principle of least privilege, where users have only the permissions necessary for their tasks, helps minimize potential security risks and maintain a robust RBAC system.",
-        "username": "benoRob1990",
         "blog_post_id": 1
     },
     {
