@@ -56,6 +56,38 @@ router.get('/blogs', async (req, res) => {
     };
 });
 
+router.get('/dashboard', async (req, res) => {
+    try {
+        const signedInUser = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: BlogPost }],
+        });
+        
+        const blogPost = await BlogPost.findAll({
+            where: {
+                user_id: req.session.user_id
+            }
+        });
+        
+        if(!signedInUser) {
+            res.status(404).json({message: 'No user found'})
+            return;
+        }
+
+        if(!blogPost) {
+            res.status(404).json({message: 'No blog found'})
+            return;
+        }
+
+        console.log('users blog posts', blogPost)
+               
+        res.render('dashboard', { signedInUser, blogPost, loggedIn: req.session.loggedIn })
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+});
+
 router.get('/post-blog', withAuth, (req, res) => {
     res.render('post-blog');
 });

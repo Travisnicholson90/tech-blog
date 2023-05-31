@@ -29,7 +29,26 @@ body {
     }
 }
 
-.comment-box .comment:nth-child(odd) {
+.comment-box .comment:nth-child(even) {
     margin-left: 2rem;
 
+}
+
+.comments-section.active {
+    display: flex;
+    opacity: 1;
+    transition: ease-in-out .4s;
+}
+
+.comments-section {
+    display: none;
+    opacity: 0;
+}
+
+#arrow {
+    transform: rotate(90deg);
+}
+
+#arrow.active {
+    transform: rotate(180deg);
 }
