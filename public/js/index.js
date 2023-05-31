@@ -1,5 +1,7 @@
 const toggle = document.querySelector('#toggle');
 const nav = document.querySelector('#navbar');
+const commentsToggle = document.querySelector('.comments-toggle');
+const commentsSection = document.querySelector('.comments-section');
 
 toggle.addEventListener('click', (e) => {
   nav.classList.toggle('navbar-show');
@@ -135,3 +137,13 @@ const commentForm = async (event) => {
   };
   
   $('#blog-post-form').submit(blogPostForm);
+
+
+const arrow = document.querySelector('#arrow');
+const commentText = document.querySelector('.comments-text');
+
+  commentsToggle.addEventListener('click', (e) => {
+  commentsSection.classList.toggle('active');
+  arrow.classList.toggle('active');
+  commentText.textContent === 'Hide Comments' ? commentText.textContent = 'Show Comments' : commentText.textContent = 'Hide Comments';
+});

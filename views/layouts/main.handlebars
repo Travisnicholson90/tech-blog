@@ -46,7 +46,7 @@
       {{/if}}
 
       <div id="login-section" class="sm:hidden lg:flex lg:gap-5 text-2xl ml-auto items-center">
-      {{#if loggedIn}}
+      {{#if signedInUser}}
       <a class="text-softRed hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:text-softRed duration-200" href="/logout">Logout</a>
       {{else}}
       <a class="text-softRed hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:text-softRed duration-200" href="/login">Login</a>
@@ -60,8 +60,11 @@
         <a class="hover:cursor-pointer hover:text-softRed" href="/">Home<li></li></a>
         <a class="hover:cursor-pointer hover:text-softRed" href="/post-blog">New Blog<li></li></a>
         <a class="hover:cursor-pointer hover:text-softRed" href="/blogs">Blog Posts<li></li></a>
+        {{#if signedInUser}}
+        <a class="hover:cursor-pointer hover:text-softRed" href="/dashboard">Dashboard<li></li></a>
+        {{/if}}
         <a class="hover:cursor-pointer hover:text-softRed" href="/signup">Sign Up<li></li></a>
-        {{#if loggedIn}}
+        {{#if signedInUser}}
         <a class="hover:cursor-pointer hover:text-softRed" href="/logout">Logout<li></li></a>
         {{else}}
         <a class="hover:cursor-pointer hover:text-softRed" href="/login">Login<li></li></a>
