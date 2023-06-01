@@ -13,7 +13,7 @@ body {
 }
 
 .navbar-hide {
-    transform: translateX(0%);
+    transform: translateX(-5%);
     transition: ease-in-out .4s;
 }
 

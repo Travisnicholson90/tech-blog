@@ -1,7 +1,5 @@
 const toggle = document.querySelector('#toggle');
 const nav = document.querySelector('#navbar');
-const commentsToggle = document.querySelector('.comments-toggle');
-const commentsSection = document.querySelector('.comments-section');
 
 toggle.addEventListener('click', (e) => {
   nav.classList.toggle('navbar-show');
@@ -130,7 +128,7 @@ const commentForm = async (event) => {
 
     if (response.ok) {
       alert('Blog post created!');
-      document.location.replace('/');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to create blog post');
     }
@@ -138,11 +136,92 @@ const commentForm = async (event) => {
   
   $('#blog-post-form').submit(blogPostForm);
 
+//delete blog post form function   
+  const deleteBlogPostForm = async (event) => {
+    event.preventDefault();
+        
+  const id = $('#delete-blog-btn').val();
+
+  const confirmDelete = confirm('Are you sure you want to delete this blog post?');
+
+  if (!confirmDelete) {
+    return;
+  }
+  const blogPostData = {
+    id: id,
+  };
+
+  const response = await fetch(`/api/delete-blog/${id}`, {
+    method: 'DELETE',
+    body: JSON.stringify(blogPostData),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (response.ok) {
+    alert('Blog post deleted!');
+    document.location.replace('/dashboard');
+  } else {
+    alert('Failed to delete blog post');
+  }
+};
+
+$('#delete-blog-form').submit(deleteBlogPostForm);
+
+//edit blog post form function
+
+const editBlogPostForm = async (event) => {
+  event.preventDefault();
+
+  const editBlogTitle = $('#edit-blog-title').val();
+  const editBlogContent = $('#edit-blog-content').val();
+  const editBlogId = $('#edit-blog-id').val();
+
+  //check if title and content are empty
+  if ( editBlogTitle === '' && editBlogContent === '' ) {
+    alert('Please enter a title and content for your blog post');
+    return;
+  };
+
+  // empty object to store updated blog post data
+  const blogPostData = {};
+
+  if (editBlogTitle) {
+    blogPostData.blog_title = editBlogTitle;
+  };
+
+  if (editBlogContent) {
+    blogPostData.blog_content = editBlogContent;
+  };
+
+  console.log(blogPostData);
+  
+  const response = await fetch(`/api/edit-blog/${editBlogId}`, {
+    method: 'PUT',
+    body: JSON.stringify(blogPostData),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (response.ok) {
+    alert('Blog post updated!');
+    document.location.replace('/dashboard');
+  } else {
+    alert('Failed to update blog post');
+  };
+
+};
+
+$('#edit-blog-form').submit(editBlogPostForm);
 
 const arrow = document.querySelector('#arrow');
 const commentText = document.querySelector('.comments-text');
+const commentToggle = document.querySelector('.comments-toggle');
+const commentsSection = document.querySelector('.comments-section');
 
-  commentsToggle.addEventListener('click', (e) => {
+  commentToggle.addEventListener('click', (e) => {
   commentsSection.classList.toggle('active');
   arrow.classList.toggle('active');
   commentText.textContent === 'Hide Comments' ? commentText.textContent = 'Show Comments' : commentText.textContent = 'Hide Comments';

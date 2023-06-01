@@ -1,0 +1,25 @@
+<section class="grid grid-cols-1 w-full">
+    <div class="grid grid-cols-1 w-full justify-self-center">
+        <form class="flex flex-col w-full md:w-3/4 lg:w-3/5 mx-auto gap-3 px-5" 
+        id="edit-blog-form"
+        >
+        <h2 class="text-5xl font-bold text-softRed justify-self-center pb-8">Edit Blog</h2>
+            <div class="flex flex-col gap-3 w-full mx-auto">
+                <label class="text-darkBlue text-2xl font-bold" for="blog-title">Blog Title</label>
+                <input class="ps-3 text-xl text-grayishBlue rounded-full py-2 outline-paleRed shadow-lg" id="edit-blog-title" type="text"
+                {{#if blog}}
+                placeholder="Existing blog title ~ {{blog.blog_title}}"
+                {{/if}}
+                >
+                {{#if blog}}
+                <input class="absolute hidden" id="edit-blog-id" value="{{blog.id}}" type="text">
+                {{/if}}
+            </div>
+            <div class="flex flex-col gap-3 w-full mx-auto">
+                <label class="text-darkBlue text-2xl font-bold" for="blog-content">Blog</label>
+                <textarea class="ps-3 text-xl text-grayishBlue rounded-md py-2 outline-paleRed shadow-lg leading-relaxed" id="edit-blog-content" type="text" cols="5" rows="10" placeholder="Content..."></textarea>
+            </div>
+              <button id="edit-blog-btn" class="flex justify-self-start w-32 py-2 p-3 bg-softRed rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200 mt-3" role="button" type="submit">Update Blog</button>
+     </form>
+    </div>
+</section>

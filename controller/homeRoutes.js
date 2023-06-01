@@ -92,6 +92,28 @@ router.get('/post-blog', withAuth, (req, res) => {
     res.render('post-blog');
 });
 
+router.get('/edit-blog/:id', async (req, res) => {
+    try { 
+        const blogPost = await BlogPost.findByPk(req.params.id);
+        
+        if(!blogPost) {
+            res.status(404).json({message: 'No blog found'})
+            return;
+        }
+
+        const blog = blogPost.get({ plain: true });
+        console.log('blog', blog);
+
+        res.render('edit-blog', { blog, loggedIn: req.session.loggedIn });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+
+    
+});
+
 router.get('/signup', (req, res) => {
     res.render('signup');
 });
