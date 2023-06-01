@@ -19,7 +19,8 @@ router.post('/', withAuth, async (req, res) => {
             user_id: req.session.user_id,
             blog_post_id: req.session.user_id,
         });
-    
+
+        res.redirect('/dashboard');
     } catch (err) {
         console.error(err);
         res.status(500).json(err);

@@ -61,7 +61,6 @@ const loginForm = async (event) => {
     });
 
     if (response.ok) {
-      alert('Logged in!');
       document.location.replace('/');
     } else {
       alert('Failed to log in');
