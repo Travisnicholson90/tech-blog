@@ -4,6 +4,7 @@ const { BlogPost, User } = require('../../model');
 
 router.delete('/:id', async (req, res) => {
     try {
+        const id = req.params.id;
         const blogData = await BlogPost.destroy({
             where: {
                 id: req.params.id,

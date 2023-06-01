@@ -6,6 +6,7 @@ const signup = require('./signup');
 const login = require('./login');
 const postBlog = require('./postBlog');
 const deleteBlog = require('./delete-blog');
+const editBlog = require('./edit-blog');
 
 
 router.use('/post-comment', postComment);
@@ -14,5 +15,6 @@ router.use('/blog-page', blogPage);
 router.use('/signup', signup);
 router.use('/login', login);
 router.use('/delete-blog', deleteBlog);
+router.use('/edit-blog', editBlog);
 
 module.exports = router;

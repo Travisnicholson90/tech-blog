@@ -35,14 +35,14 @@
     <img id="toggle" class="flex w-14 z-100 hover:cursor-pointer object-cover" src="/assets/images/toggle.svg" alt="nav-toggle">
 
      <a href="/">
-      <h1 class="z-100 text-textBlue text-4xl ms-10 text-darkBlue hover:cursor-pointer hover:text-softRed">TechStack Blog</h1>
+      <h1 class="z-100 text-textBlue text-2xl font-bold lg:text-4xl ms-10 text-darkBlue hover:cursor-pointer hover:text-softRed">TechStack Blog</h1>
      </a>
     
     </div>
 
      <div class="flex items-center text-2xl gap-2 pt-2 lg:pt-0 lg:ml-auto">
       {{#if signedInUser}}
-      <p class="text-darkBlue">Welcome, {{signedInUser.dataValues.first_name}} {{signedInUser.dataValues.last_name}}!</p>
+      <p class="text-darkBlue text-xl lg:text-2xl">Welcome, {{signedInUser.dataValues.first_name}} {{signedInUser.dataValues.last_name}}!</p>
       {{/if}}
 
       <div id="login-section" class="sm:hidden lg:flex lg:gap-5 text-2xl ml-auto items-center">
@@ -55,7 +55,7 @@
 
      </div>
 
-    <nav id="navbar" class="absolute flex flex-col z-100 w-full top-20 pt-20 ps-10 navbar-show navbar-hide h-screen bg-lightGray">
+    <nav id="navbar" class="absolute flex flex-col z-100 w-full top-20 pt-20 ps-20 navbar-show navbar-hide h-screen bg-lightGray">
       <ul class="flex flex-col gap-10 text-3xl font-bold text-darkBlue">
         <a class="hover:cursor-pointer hover:text-softRed" href="/">Home<li></li></a>
         <a class="hover:cursor-pointer hover:text-softRed" href="/post-blog">New Blog<li></li></a>

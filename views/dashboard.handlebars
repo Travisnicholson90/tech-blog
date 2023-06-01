@@ -3,20 +3,23 @@
     <h1 class="text-5xl lg:text-5xl font-bold text-softRed">Dashboard</h1>
     <div class="flex flex-col text-darkBlue">
         <h2 class="text-3xl py-3 font-bold">Active Blogs</h2>
-        <div class="flex flex-col leading-relaxed text-xl lg:text-2xl bg-veryLightGray gap-3 py-4 px-3 rounded-lg shadow-lg justify-between">
+        {{!-- <div class="flex flex-col leading-relaxed text-xl lg:text-2xl gap-3 justify-between"> --}}
             {{#each blogPost as |blog|}}
+            <div class="grid gap-2 my-2 bg-veryLightGray py-4 px-3 rounded-lg shadow-lg leading-relaxed text-xl lg:text-2xl">
                 <div class="flex flex gap-2 justify-between">
                     <div class="flex flex-col gap-2">
                         <p class="font-bold">Title</p>
                         <p class="text-grayishBlue">{{blog.dataValues.blog_title}}</p>
                     </div>
                     <div class="flex items-center gap-3">
-                        <a href="/edit-blog">
+                            <a href="/edit-blog/{{blog.dataValues.id}}" id="edit-blog-btn" role="button" value="{{blog.dataValues.id}}" >
                             <img class="w-8" src="/assets/images/edit.svg" alt="edit-icon">
-                        </a>
-                        <a href="/delete-blog">
+                            </a>  
+                    <form id="delete-blog-form">
+                        <button id="delete-blog-btn" role="button" type="submit" value="{{blog.dataValues.id}}">
                             <img class="w-8" src="/assets/images/delete.svg" alt="">
-                        </a>
+                        </button>
+                    </form>
                 </div>
                 </div>
                 <div class="flex flex-col gap-2">
@@ -33,10 +36,9 @@
                     <p class="text-lightGrayishBlue">{{format_date blog.dataValues.updatedAt}}</p>
                 </div>
                 </div>
-                <form class="absolute hidden"><input id="blogId" type="text" value="{{blog.dataValues.id}}"></form>
+            </div>
             {{/each}}
-
-        </div>
+        {{!-- </div> --}}
     </div>
     </div>
 
