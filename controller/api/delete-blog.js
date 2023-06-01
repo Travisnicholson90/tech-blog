@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const path = require('path');
 const { BlogPost, User } = require('../../model');
-
-router.delete('/:id', async (req, res) => {
+const withAuth = require('../../utils/auth');
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const id = req.params.id;
         const blogData = await BlogPost.destroy({

@@ -48,7 +48,7 @@ router.get('/blogs', async (req, res) => {
             res.status(404).json({message: 'No blogs found'})
             return;
         }
-        res.render('blog', { blogPost })
+        res.render('blog', { blogPost, loggedIn: req.session.loggedIn })
     }
     catch (err) {
         console.error(err);
@@ -56,7 +56,7 @@ router.get('/blogs', async (req, res) => {
     };
 });
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
     try {
         const signedInUser = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
@@ -81,7 +81,7 @@ router.get('/dashboard', async (req, res) => {
 
         console.log('users blog posts', blogPost)
                
-        res.render('dashboard', { signedInUser, blogPost, loggedIn: req.session.loggedIn })
+        res.render('dashboard', { blogPost, loggedIn: req.session.loggedIn })
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
@@ -89,10 +89,10 @@ router.get('/dashboard', async (req, res) => {
 });
 
 router.get('/post-blog', withAuth, (req, res) => {
-    res.render('post-blog');
+    res.render('post-blog', { loggedIn: req.session.loggedIn });
 });
 
-router.get('/edit-blog/:id', async (req, res) => {
+router.get('/edit-blog/:id', withAuth, async (req, res) => {
     try { 
         const blogPost = await BlogPost.findByPk(req.params.id);
         

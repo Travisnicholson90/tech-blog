@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const path = require('path');
 const { BlogComment, BlogPost, User } = require('../../model');
-
-router.put('/:id', async (req, res) => {
+const withAuth = require('../../utils/auth');
+router.put('/:id', withAuth, async (req, res) => {
     try {
         const { id } = req.params;
         
