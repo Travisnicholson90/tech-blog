@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const path = require('path');
 const { BlogComment, BlogPost, User } = require('../../model');
+const withAuth = require('../../utils/auth');
 
-
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
     try { 
         const id = req.params.id;
         const blogs = await BlogPost.findByPk(req.params.id, {
