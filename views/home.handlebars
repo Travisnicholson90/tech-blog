@@ -1,15 +1,15 @@
-<div class="py-16 lg:py-20 grid grid-cols-1 items-start lg:grid-cols-2 gap-20 items-start justify-center px-5 mx-auto">
-    <div class="flex flex-col px-5 gap-10 items-start mx-auto pb-14">
-        <h1 class="text-5xl font-bold lg:text-6xl text-darkBlue w-4/5">Welcome to the TechStack Blog</h1>
+<div class="py-16 lg:py-20 grid grid-cols-1 items-start lg:grid-cols-2 gap-20 items-start justify-center px-5 mx-auto mb-32">
+    <div class="flex flex-col items-center lg:px-5 gap-10 lg:items-start mx-auto pb-14">
+        <h1 class="text-5xl w-full font-bold lg:text-6xl text-darkBlue lg:w-3/2">Welcome to the TechStack Blog</h1>
         <p class="text-2xl lg:text-3xl text-darkBlue items-center">Your place for all Fullstack Web Dev blogs, info and discussions! </p>
               <a href="/blogs">
               <button id="btn" class="flex justify-self-start w-32 py-3 p-3 bg-softRed rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200 mt-3" role="button">See Blogs</button>
               </a>
     </div>
-    <div class="flex flex-col gap-4 items-start px-8">
+    <div class="flex flex-col gap-4 items-center px-8">
         <h2 class="text-3xl lg:text-5xl font-bold text-darkBlue">Latest Blogs</h2>
         {{#each blogPost as |blog|}}
-        <div class="flex flex-col lg:flex-row lg:items-center justify-start lg:gap-3">
+        <div class="flex flex-col lg:flex-row items-center lg:items-center justify-start lg:gap-3">
             <h2 class="text-xl lg:text-2xl text-grayishBlue">{{blog.dataValues.blog_title}}</h2>
               <a href="api/blog-page/{{blog.dataValues.id}}">
               <button id="btn" class="flex text-lg lg:text-xl text-softRed hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200 mt-2" role="button">Read Blog</button>

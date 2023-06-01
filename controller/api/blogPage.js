@@ -32,7 +32,7 @@ router.get('/:id', withAuth, async (req, res) => {
         const author = blogAuthor.get({ plain: true });
         console.log('blog author', author);
         
-        res.render('blog-page', { blog, id, blogComments, author});
+        res.render('blog-page', { blog, id, blogComments, author, loggedIn: req.session.loggedIn});
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
