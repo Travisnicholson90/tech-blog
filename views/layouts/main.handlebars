@@ -31,33 +31,39 @@
     <title>Tech Blog</title>
 </head>
 <body class="bg-lightGray relative">
-  <header class="header relative bg-softRed flex flex-col justify-start items-start lg:flex-row lg:items-center z-0 py-3 px-5">
-    <div class="flex items-center">
-   <input type="checkbox" id="checkbox">
-    <label for="checkbox" class="toggle">
-        <div class="bars" id="bar1"></div>
-        <div class="bars" id="bar2"></div>
-        <div class="bars" id="bar3"></div>
-    </label>
-     <a href="/">
-      <h1 class="z-100 text-textBlue text-2xl font-bold lg:text-4xl ms-10 text-darkBlue hover:cursor-pointer hover:text-softRed">TechStack Blog</h1>
-     </a>
+  <header class="header relative bg-softRed flex flex-col justify-start items-start lg:flex-row lg:items-center z-0 py-3 px-3">
+    <div class="flex w-full">
+      <div class="flex items-center">
+    <input type="checkbox" id="checkbox">
+      <label for="checkbox" class="toggle">
+          <div class="bars" id="bar1"></div>
+          <div class="bars" id="bar2"></div>
+          <div class="bars" id="bar3"></div>
+      </label>
+      <a href="/">
+        <h1 class="z-100 text-textBlue text-2xl font-bold lg:text-4xl ms-10 text-darkBlue hover:cursor-pointer hover:text-veryLightGray">TechStack Blog</h1>
+      </a>
+    </div>
+    <div class="flex items-center ms-auto">
+      {{#if loggedIn}}
+      <a href="/logout">
+      <button class="signout-btn">
+        <div class="signout"><svg viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg></div>
+        <div class="signout-text">Logout</div>
+      </button>
+      </a>
+      {{else}}
+      <a href="/login">
+      <button class="signin-btn">
+        <div class="signin"><svg viewBox="0 0 512 512"><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"></path></svg></div>
+        <div class="signin-text">Login</div>
+    </button>
+      </a>
+      {{/if}}
+    </div>
     </div>
 
-     <div class="flex items-center text-2xl gap-2 pt-2 lg:pt-0 lg:ml-auto">
-      {{#if signedInUser}}
-      <p class="text-darkBlue text-xl lg:text-2xl">Welcome, {{signedInUser.dataValues.first_name}} {{signedInUser.dataValues.last_name}}!</p>
-      {{/if}}
 
-      <div id="login-section" class="sm:hidden lg:flex lg:gap-5 text-2xl ml-auto items-center">
-      {{#if loggedIn}}
-      <a class="text-veryLightGray hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:text-softRed duration-200" href="/logout">Logout</a>
-      {{else}}
-      <a class="text-veryLightGray hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:text-softRed duration-200" href="/login">Login</a>
-      {{/if}}
-      </div>
-
-     </div>
 
     <nav id="navbar" class="absolute flex flex-col z-100 w-full top-20 pt-20 ps-20 navbar-show navbar-hide h-screen bg-lightGray">
       <ul class="flex flex-col gap-10 text-3xl font-bold text-darkBlue">
