@@ -69,72 +69,6 @@ const loginForm = async (event) => {
 
   $('#login-form').submit(loginForm);
 
-
-//comment form function
-const commentForm = async (event) => {
-    event.preventDefault();
-
-    const commentUsername = $('#comment-username').val();
-    const commentText = $('#comment-text').val();
-    const id = $('#blog-id').val();
-    
-    const commentData = {
-      username: commentUsername,
-      comment: commentText,
-    };
-
-    console.log(commentData);
-
-    const response = await fetch(`/api/post-comment/comments/${id}`, {
-      method: 'POST',
-      body: JSON.stringify(commentData),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (response.ok) {
-      alert('Comment posted!');
-      document.location.replace(`/api/blog-page/${id}`);
-    } else {
-      alert('Failed to post comment');
-    }
-  };
-
-  $('#comment-form').submit(commentForm);
-
-  //blog post form function 
-  const blogPostForm = async (event) => {
-    event.preventDefault();
-
-    const blogTitle = $('#blog-post-title').val();
-    const blogContent = $('#blog-post-content').val();
-
-    const blogPostData = {
-      blogTitle: blogTitle,
-      blogContent: blogContent,
-    };
-
-    console.log(blogPostData);
-    
-    const response = await fetch('/api/post-blog', {
-      method: 'POST',
-      body: JSON.stringify(blogPostData),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (response.ok) {
-      alert('Blog post created!');
-      document.location.replace('/dashboard');
-    } else {
-      alert('Failed to create blog post');
-    }
-  };
-  
-  $('#blog-post-form').submit(blogPostForm);
-
 //delete blog post form function   
   const deleteBlogPostForm = async (event) => {
     event.preventDefault();
@@ -168,52 +102,6 @@ const commentForm = async (event) => {
 
 $('#delete-blog-form').submit(deleteBlogPostForm);
 
-//edit blog post form function
-
-const editBlogPostForm = async (event) => {
-  event.preventDefault();
-
-  const editBlogTitle = $('#edit-blog-title').val();
-  const editBlogContent = $('#edit-blog-content').val();
-  const editBlogId = $('#edit-blog-id').val();
-
-  //check if title and content are empty
-  if ( editBlogTitle === '' && editBlogContent === '' ) {
-    alert('Please enter a title and content for your blog post');
-    return;
-  };
-
-  // empty object to store updated blog post data
-  const blogPostData = {};
-
-  if (editBlogTitle) {
-    blogPostData.blog_title = editBlogTitle;
-  };
-
-  if (editBlogContent) {
-    blogPostData.blog_content = editBlogContent;
-  };
-
-  console.log(blogPostData);
-  
-  const response = await fetch(`/api/edit-blog/${editBlogId}`, {
-    method: 'PUT',
-    body: JSON.stringify(blogPostData),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-
-  if (response.ok) {
-    alert('Blog post updated!');
-    document.location.replace('/dashboard');
-  } else {
-    alert('Failed to update blog post');
-  };
-
-};
-
-$('#edit-blog-form').submit(editBlogPostForm);
 
 const arrow = document.querySelector('#arrow');
 const commentText = document.querySelector('.comments-text');

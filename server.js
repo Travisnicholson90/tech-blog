@@ -47,7 +47,4 @@ sequelize.sync({ force: false }).then(() => {
       console.log("Now listening");
     });
 });
-  
 
-//TODO: fix login so all pages can see login/logout status
-//TODO: fix all post alerts in index.js

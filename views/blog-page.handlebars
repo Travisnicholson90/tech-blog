@@ -8,7 +8,9 @@
             <p class="italic text-darkBlue justify-self-start">Author <span class="text-softRed">{{author.user.username}}</span></p>
         {{/if}}
         </div>
-        <p class="ms-auto tracking-wide leading-relaxed text-lg lg:text-xl py-3 text-grayishBlue">{{blog.blog_content}}</p>
+        <div class="ms-auto tracking-wide leading-relaxed text-lg lg:text-xl py-3 text-grayishBlue">
+        <p>{{{blog.blog_content}}}</p>
+        </div>
         <div class="comment-box flex flex-col gap-4">
             <div class="flex flex-col items-start gap-2">
                 <h2 class="text-darkBlue text-2xl font-bold">Comments</h2>
@@ -20,7 +22,9 @@
             <div class="comments-section comment-box flex-col gap-4">
             {{#each blog.blogComments as |comment|}}
             <div class="comment flex flex-col lg:w-2/3 bg-veryLightGray p-3 shadow-lg rounded-lg">
-            <p class="flex flex-wrap tracking-wide leading-relaxed text-lg lg:text-xl text-grayishBlue">{{comment.comment}}</p>
+            <div class="flex flex-wrap tracking-wide leading-relaxed text-lg lg:text-xl text-grayishBlue">
+            <p class="flex flex-wrap tracking-wide leading-relaxed text-lg lg:text-xl text-grayishBlue">{{{comment.comment}}}</p>
+            </div>
             <div class="flex justify-between text-lg text-grayishBlue py-3">
                 <p class="text-softRed"><span class="text-grayishBlue italic">posted by</span> {{comment.username}}</p>
                 <p>{{format_date comment.createdAt}}</p>
@@ -35,7 +39,9 @@
             <div class="flex flex-col py-3">
             <input id="blog-id" class="absolute hidden" value={{blog.id}} type="text">
             </div>
-            <textarea id="comment-text" class="w-full lg:w-3/5 text-lg lg:text-xl text-grayishBlue p-3 outline-paleRed tracking-wide leading-relaxed rounded-lg shadow-lg" type="text" rows="5" cols="10" placeholder="Comments..."></textarea>
+            <div id="container">
+                <div id="editor" class="comments-editor flex flex-col leading-relaxed gap-3 w-full mx-auto text-grayishBlue"></div>
+            </div>
               <button id="btn" class="flex justify-self-start shadow-lg mt-3 w-3/5 md:w-3/5 lg:w-1/5 p-2 bg-softRed rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200" type="submit" role="button">Submit</button>
         </form>
     </div>
