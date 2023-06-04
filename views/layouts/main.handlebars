@@ -31,11 +31,14 @@
     <title>Tech Blog</title>
 </head>
 <body class="bg-lightGray relative">
-
-  <header class="header relative flex flex-col justify-start items-start lg:flex-row lg:items-center z-0 py-3 px-5">
+  <header class="header relative bg-softRed flex flex-col justify-start items-start lg:flex-row lg:items-center z-0 py-3 px-5">
     <div class="flex items-center">
-    <img id="toggle" class="flex w-14 z-100 hover:cursor-pointer object-cover" src="/assets/images/toggle.svg" alt="nav-toggle">
-
+   <input type="checkbox" id="checkbox">
+    <label for="checkbox" class="toggle">
+        <div class="bars" id="bar1"></div>
+        <div class="bars" id="bar2"></div>
+        <div class="bars" id="bar3"></div>
+    </label>
      <a href="/">
       <h1 class="z-100 text-textBlue text-2xl font-bold lg:text-4xl ms-10 text-darkBlue hover:cursor-pointer hover:text-softRed">TechStack Blog</h1>
      </a>
@@ -48,9 +51,9 @@
 
       <div id="login-section" class="sm:hidden lg:flex lg:gap-5 text-2xl ml-auto items-center">
       {{#if loggedIn}}
-      <a class="text-softRed hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:text-softRed duration-200" href="/logout">Logout</a>
+      <a class="text-veryLightGray hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:text-softRed duration-200" href="/logout">Logout</a>
       {{else}}
-      <a class="text-softRed hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:text-softRed duration-200" href="/login">Login</a>
+      <a class="text-veryLightGray hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:text-softRed duration-200" href="/login">Login</a>
       {{/if}}
       </div>
 
