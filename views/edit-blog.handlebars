@@ -15,9 +15,8 @@
                 <input class="absolute hidden" id="edit-blog-id" value="{{blog.id}}" type="text">
                 {{/if}}
             </div>
-            <div class="flex flex-col gap-3 w-full mx-auto">
-                <label class="text-darkBlue text-2xl font-bold" for="blog-content">Blog</label>
-                <textarea class="ps-3 text-xl text-grayishBlue rounded-md py-2 outline-paleRed shadow-lg leading-relaxed" id="edit-blog-content" type="text" cols="5" rows="10" placeholder="Content..."></textarea>
+            <div id="container">
+            <div id="editor" class="edit-editor flex flex-col leading-relaxed gap-3 w-full mx-auto text-grayishBlue"></div>
             </div>
               <button id="edit-blog-btn" class="flex justify-self-start w-32 py-2 p-3 bg-softRed rounded-2xl text-white justify-center hover:cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-bgBlue duration-200 mt-3" role="button" type="submit">Update Blog</button>
      </form>

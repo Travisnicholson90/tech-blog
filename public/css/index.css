@@ -12,10 +12,6 @@ body {
     height: 70vh;
 }
 
-.red {
- color: #fc454580;
-}
-
 .navbar-hide {
     transform: translateX(-5%);
     transition: ease-in-out .4s;
@@ -55,4 +51,27 @@ body {
 
 #arrow.active {
     transform: rotate(180deg);
+}
+
+#container {
+    color: hsl(211, 10%, 45%);
+    font-size: 1.3rem;
+    z-index: 1;
+}
+
+.ck-editor__editable[role="textbox"] {
+    /* editing area */
+    min-height: 300px;
+}
+
+.ck-content .image {
+    /* block images */
+    max-width: 80%;
+    margin: 20px auto;
+}
+
+#text {
+    color: hsl(211, 10%, 45%);
+    font-size: 1.5rem;
+
 }

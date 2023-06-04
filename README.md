@@ -64,7 +64,7 @@ Tech blog is a blogging website that allows users to users to create an account,
 
 ### Email
 - For any further question relating to this project, please contact me via email.
-[Travis Nicholson](mailto::nicholson_travis@hotmail.com)
+[Travis Nicholson](mailto:nicholson_travis@hotmail.com)
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
