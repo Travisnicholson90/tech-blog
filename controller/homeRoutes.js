@@ -42,12 +42,16 @@ router.get('/', async (req, res) => {
 
 router.get('/blogs', async (req, res) => {
     try {
-        const blogPost = await BlogPost.findAll({})      
+        const blogPost = await BlogPost.findAll({
+            include: [{ model: User }],
+        });
         
         if(!blogPost) {
             res.status(404).json({message: 'No blogs found'})
             return;
         }
+        console.log('blog post', blogPost);
+        
         res.render('blog', { blogPost, loggedIn: req.session.loggedIn })
     }
     catch (err) {
